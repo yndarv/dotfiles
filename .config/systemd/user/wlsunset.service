@@ -1,0 +1,12 @@
+[Unit]
+Description=wlsunset
+After=default.target
+
+[Service]
+ExecStart=/usr/bin/wlsunset -l 52.094109 -L 23.731911
+StandardOutput=journal
+StandardError=journal
+Restart=always
+
+[Install]
+WantedBy=default.target
