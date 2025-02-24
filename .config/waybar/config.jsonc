@@ -1,0 +1,122 @@
+{
+  "position": "top",
+  "layer": "top",
+  "modules-center": [],
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "battery",
+    "network",
+    "pulseaudio",
+    "clock",
+    "hyprland/language",
+    "backlight",
+    "group/hardware",
+    "systemd-failed-units",
+    "tray",
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "*": 5, // 5 workspaces by default on every monitor
+    }
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "🇺🇸",
+    "format-ru": "🇷🇺",
+  },
+  "clock": {
+    "interval": 60,
+    "tooltip": true,
+    "format": "{:%H:%M %d.%m.%Y}",
+    "tooltip-format": "{:%Y-%m-%d}",
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": [
+      "󰁺",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰁹"
+    ],
+    "max-length": 25
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      ""
+    ]
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "{}% ",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "max-length": 10
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    // "max-length": 50
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": " ",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "systemd-failed-units": {
+    "hide-on-ok": false, // Do not hide if there is zero failed units.
+    "format": "✗ {nr_failed}",
+    "format-ok": "✓",
+    "system": true, // Monitor failed systemwide units.
+    "user": true // Ignore failed user units.
+  },
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+  "disk": {
+    "interval": 30,
+    "format": "Only {percentage_free}% remaining on {path}",
+    "path": "/"
+  },
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory"
+    ],
+  },
+}
