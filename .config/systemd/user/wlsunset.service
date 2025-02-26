@@ -1,12 +1,15 @@
 [Unit]
 Description=wlsunset
-After=default.target
+PartOf=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+After=graphical-session.target
+Requisite=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/wlsunset -l 52.094109 -L 23.731911
 StandardOutput=journal
 StandardError=journal
-Restart=always
+Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
