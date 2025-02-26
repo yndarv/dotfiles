@@ -22,19 +22,41 @@
 @define-color surface1 #45475a;
 @define-color surface0 #313244;
 @define-color base #1e1e2e;
+@define-color baseAlpha rgba(30, 30, 46, 0.8);
 @define-color mantle #181825;
 @define-color crust #11111b;
 
 * {
   font-family: monospace;
-  font-size: 13px;
+  font-size: 14px;
   background: transparent;
-  border-radius: 10px;
+  border: none;
+  min-height: 0;
+}
+
+window#waybar {
+  color: @text;
+  margin-top: 10px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+#workspaces {
+  background: @base;
+  margin: 3px 3px 0 3px;
+  padding: 1px;
+  border-radius: 8px;
+  border: 0px;
+  font-weight: bold;
+  font-style: normal;
+  opacity: 0.8;
+  font-size: 16px;
+  color: @text;
 }
 
 #workspaces button {
-  padding: 0 0.5em;
-  background-color: @base;
+  border-radius: 8px;
+  padding: 0 0.25em;
   color: @text;
   margin: 0 0.15em;
 }
@@ -46,12 +68,15 @@
 #workspaces button.active {
   background-color: @mauve;
   color: @base;
-
 }
 
 #workspaces button.urgent {
   background-color: @red;
   color: @text;
+}
+
+.modules-right {
+  margin: 3px 3px 0 3px;
 }
 
 #language,
@@ -61,18 +86,44 @@
 #network,
 #pulseaudio,
 #systemd-failed-units,
-#tray {
-  background-color: @base;
-  padding: 0 10px;
-  margin: 0 0.1em;
+#tray,
+#cpu,
+#memory,
+#hardware {
+  background: @base;
+  opacity: 0.8;
+  color: @text;
+  padding: 1px 10px;
+  margin: 0px 0.1em;
+  border-radius: 8px;
 }
 
 #cpu,
 #memory {
+  margin: 2px 1px 3px 1px;
+  color: @text;
   margin: 0 0.1em;
   padding: 0 5px;
 }
 
-#hardware {
+tooltip {
   background-color: @base;
+  opacity: 0.9;
+  padding: 20px;
+  margin: 0px;
+}
+
+@keyframes blink {
+  to {
+    background-color: @backgroundlight;
+    color: @textcolor2;
+  }
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
 }
