@@ -1,51 +1,10 @@
-# vim:fileencoding=utf-8:foldmethod=marker
-
-# BEGIN_KITTY_THEME
-# Catppuccin-Mocha
 include current-theme.conf
-# END_KITTY_THEME
-
-#: Fonts {{{
-
-#: kitty has very powerful font management. You can configure
-#: individual font faces and even specify special fonts for particular
-#: characters.
-
 # font_family      monospace
 # bold_font        auto
 # italic_font      auto
 # bold_italic_font auto
 
-#: You can specify different fonts for the bold/italic/bold-italic
-#: variants. The easiest way to select fonts is to run the `kitten
-#: choose-fonts` command which will present a nice UI for you to
-#: select the fonts you want with previews and support for selecting
-#: variable fonts and font features. If you want to learn to select
-#: fonts manually, read the font specification syntax
-#: <https://sw.kovidgoyal.net/kitty/kittens/choose-fonts/#font-spec-
-#: syntax>.
-
-# font_size 11.0
-
-#: Font size (in pts).
-
-# force_ltr no
-
-#: kitty does not support BIDI (bidirectional text), however, for RTL
-#: scripts, words are automatically displayed in RTL. That is to say,
-#: in an RTL script, the words "HELLO WORLD" display in kitty as
-#: "WORLD HELLO", and if you try to select a substring of an RTL-
-#: shaped string, you will get the character that would be there had
-#: the string been LTR. For example, assuming the Hebrew word ירושלים,
-#: selecting the character that on the screen appears to be ם actually
-#: writes into the selection buffer the character י. kitty's default
-#: behavior is useful in conjunction with a filter to reverse the word
-#: order, however, if you wish to manipulate RTL glyphs, it can be
-#: very challenging to work with, so this option is provided to turn
-#: it off. Furthermore, this option can be used with the command line
-#: program GNU FriBidi <https://github.com/fribidi/fribidi#executable>
-#: to get BIDI support, because it will force kitty to always treat
-#: the text as LTR, which FriBidi expects for terminals.
+font_size 13
 
 # symbol_map
 
@@ -266,7 +225,7 @@ include current-theme.conf
 #: so if you want to override it, place your value after the lines
 #: where the theme file is included.
 
-# cursor_shape block
+cursor_shape block
 
 #: The cursor shape can be one of block, beam, underline. Note that
 #: when reloading the config this will be changed only if the cursor
@@ -277,7 +236,7 @@ include current-theme.conf
 #: the cursor shape to beam at shell prompts. You can avoid this by
 #: setting shell_integration to no-cursor.
 
-# cursor_shape_unfocused hollow
+cursor_shape_unfocused block
 
 #: Defines the text cursor shape when the OS window is not focused.
 #: The unfocused cursor shape can be one of block, beam, underline,
@@ -291,7 +250,7 @@ include current-theme.conf
 
 #: The thickness of the underline cursor (in pts).
 
-# cursor_blink_interval -1
+cursor_blink_interval 0
 
 #: The interval to blink the cursor (in seconds). Set to zero to
 #: disable blinking. Negative values mean use system default. Note
@@ -312,7 +271,7 @@ include current-theme.conf
 #: Stop blinking cursor after the specified number of seconds of
 #: keyboard inactivity. Set to zero to never stop blinking.
 
-# cursor_trail 0
+cursor_trail 1
 
 #: Set this to a value larger than zero to enable a "cursor trail"
 #: animation. This is an animation that shows a "trail" following the
@@ -340,7 +299,7 @@ include current-theme.conf
 #: trail. Adjust these values to control how quickly the cursor trail
 #: fades away.
 
-# cursor_trail_start_threshold 2
+cursor_trail_start_threshold 4
 
 #: Set the distance threshold for starting the cursor trail. This
 #: option accepts a positive integer value that represents the minimum
@@ -2665,3 +2624,11 @@ include current-theme.conf
 #: }}}
 
 #: }}}
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="CaskaydiaCove Nerd Font"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
