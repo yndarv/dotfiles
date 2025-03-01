@@ -1,61 +1,30 @@
-@define-color rosewater #f5e0dc;
-@define-color flamingo #f2cdcd;
-@define-color pink #f5c2e7;
-@define-color mauve #cba6f7;
-@define-color red #f38ba8;
-@define-color maroon #eba0ac;
-@define-color peach #fab387;
-@define-color yellow #f9e2af;
-@define-color green #a6e3a1;
-@define-color teal #94e2d5;
-@define-color sky #89dceb;
-@define-color sapphire #74c7ec;
-@define-color blue #89b4fa;
-@define-color lavender #b4befe;
-@define-color text #cdd6f4;
-@define-color subtext1 #bac2de;
-@define-color subtext0 #a6adc8;
-@define-color overlay2 #9399b2;
-@define-color overlay1 #7f849c;
-@define-color overlay0 #6c7086;
-@define-color surface2 #585b70;
-@define-color surface1 #45475a;
-@define-color surface0 #313244;
-@define-color base #1e1e2e;
-@define-color mantle #181825;
-@define-color crust #11111b;
-
 * {
-  font-family: monospace;
+  font-family: sans-serif;
   font-size: 14px;
-  background: transparent;
+  font-weight: 500;
   border: none;
   min-height: 0;
 }
 
 window#waybar {
-  color: @text;
+  color: white;
   transition-property: background-color;
+  background: transparent;
   transition-duration: 0.5s;
+  /*border-bottom: 1px solid lightgray;*/
 }
 
 #workspaces {
-  /*background: @base;*/
-  /*opacity: 0.8;*/
-  margin: 2px;
-  padding: 1px;
-  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 1px;
   border: 0px;
-  font-weight: bold;
-  font-style: normal;
   font-size: 16px;
-  color: @text;
+  color: white;
 }
 
 #workspaces button {
-  border-radius: 8px;
-  padding: 0 0.25em;
-  color: @text;
+  padding: 0 3px;
+  color: white;
   margin: 0 0.15em;
 }
 
@@ -64,18 +33,20 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background-color: @green;
-  color: @base;
+  color: white; /* Text color for the active workspace */
+  font-weight: 700;
+  border-radius: 0px;
+  border-bottom: 1px solid white;
 }
 
 #workspaces button.urgent {
-  background-color: @red;
-  color: @text;
+  background-color: red;
+  color: white;
 }
 
 .modules-right {
-  opacity: 0.8;
-  margin: 2px;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 1px;
 }
 
 #language,
@@ -84,27 +55,14 @@ window#waybar {
 #backlight,
 #network,
 #pulseaudio,
-#systemd-failed-units,
-#tray,
-#cpu,
-#memory,
-#hardware {
-  /*background: @base;*/
-  color: @text;
+#tray {
+  color: white;
   padding: 1px 10px;
   margin: 0px 0.1em;
-  border-radius: 8px;
 }
 
 #battery.charging {
   color: @green;
-}
-
-#cpu,
-#memory {
-  color: @text;
-  margin: 0 0.1em;
-  padding: 0 5px;
 }
 
 tooltip {
@@ -116,7 +74,7 @@ tooltip {
 @keyframes blink {
   to {
     background-color: @backgroundlight;
-    color: @textcolor2;
+    color: white;
   }
 }
 
