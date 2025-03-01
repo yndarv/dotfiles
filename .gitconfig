@@ -1,3 +1,5 @@
 [user]
 	email = yndarven@gmail.com
 	name = Siarhei Ryzhko
+[init]
+	defaultBranch = main

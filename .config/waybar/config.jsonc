@@ -4,15 +4,12 @@
   "modules-center": [],
   "modules-left": ["hyprland/workspaces"],
   "modules-right": [
-    "battery",
-    "network",
+    "tray",
     "pulseaudio",
+    "backlight",
+    "battery",
     "clock",
     "hyprland/language",
-    "backlight",
-    // "group/hardware",
-    "systemd-failed-units",
-    "tray",
   ],
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -88,7 +85,7 @@
     "user": true, // Ignore failed user units.
   },
   "tray": {
-    "icon-size": 21,
+    "icon-size": 16,
     "spacing": 10,
   },
   "disk": {
