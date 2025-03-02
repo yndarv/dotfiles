@@ -8,15 +8,11 @@
 
 window#waybar {
   color: white;
-  transition-property: background-color;
-  background: transparent;
-  transition-duration: 0.5s;
+  background: rgba(0, 0, 0, 0.8);
   /*border-bottom: 1px solid lightgray;*/
 }
 
 #workspaces {
-  background-color: rgba(0, 0, 0, 0.8);
-  margin: 1px;
   border: 0px;
   font-size: 16px;
   color: white;
@@ -45,8 +41,6 @@ window#waybar {
 }
 
 .modules-right {
-  background-color: rgba(0, 0, 0, 0.8);
-  margin: 1px;
 }
 
 #language,
