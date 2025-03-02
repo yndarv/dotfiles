@@ -1,6 +1,7 @@
 return {
   'stevearc/oil.nvim',
   cmd = "Oil",
+  enabled = false,
   event = { "VimEnter */*,.*", "BufNew */*,.*" },
   keys = {
     { "-", "<cmd> Oil<cr>",   desc = "Oil current dir" },
