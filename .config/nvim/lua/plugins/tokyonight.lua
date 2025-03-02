@@ -4,10 +4,12 @@ return {
   priority = 1000,
   opts = {
     style = "night",
-    transparent = false,
+    transparent = true,
     styles = {
       comments = { italic = false },
       keywords = { italic = false },
+      sidebars = "transparent",
+      floats = "transparent",
     },
   },
 }
