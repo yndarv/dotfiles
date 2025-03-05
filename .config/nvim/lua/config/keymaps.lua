@@ -12,3 +12,5 @@ vim.keymap.del({ "n" }, ";")
 -- vim.keymap.del("n", "<leader>fE")
 
 vim.keymap.set("n", ";", ":")
+
+vim.keymap.set("n", "<leader><leader>", function() Snacks.picker.files() end)

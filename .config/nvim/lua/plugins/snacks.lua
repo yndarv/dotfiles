@@ -33,6 +33,17 @@ return {
     indent = {
       enabled = false,
     },
+    notifier = {
+      timeout = 1500,
+      -- @param notif snacks.notifier.Notif
+      filter = function(notif)
+        local msg = string.lower(notif.msg)
+        if msg == 'no information available' then
+          return false
+        end
+        return true
+      end
+    },
     picker = {
       layout = {
         preset = "ivy",
@@ -43,7 +54,7 @@ return {
           hidden = true,
           auto_close = true,
           layout = {
-            preset = "dropdown",
+            preset = "default",
           },
         },
         buffers = {

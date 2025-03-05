@@ -1,8 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  opts = {
-    sections = {
-      lualine_z = {},
-    },
-  },
+  opts = function(_, opts)
+    opts.sections.lualine_z = {}
+  end
 }
