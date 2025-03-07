@@ -17,6 +17,5 @@ return {
       sidebars = "transparent",
       floats = "transparent",
     },
-
   },
 }
