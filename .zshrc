@@ -41,15 +41,19 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+setopt autocd
 
 
 alias ls='eza -a --long --header --icons'
 alias v=nvim
 alias md='mkdir -p'
+
+alias l=ls
 alias mu=mullvad
 alias m=make
 alias d=docker
 alias y=yazi
+alias lg=lazygit
 
 function sesh-sessions() {
   {
