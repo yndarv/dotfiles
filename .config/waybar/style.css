@@ -8,31 +8,25 @@
 
 window#waybar {
   color: white;
-  background: rgba(0, 0, 0, 0.5);
-  /*border-bottom: 1px solid lightgray;*/
+  background: rgba(0, 0, 0, 0.8);
 }
 
 #workspaces {
-  border: 0px;
+  border: none;
   font-size: 16px;
   color: white;
 }
 
 #workspaces button {
+  color: gray;
   padding: 0 3px;
-  color: white;
   margin: 0 0.15em;
-}
-
-#workspaces button.empty {
-  color: @overlay0;
 }
 
 #workspaces button.active {
   color: white; /* Text color for the active workspace */
   font-weight: 700;
   border-radius: 0px;
-  border-bottom: 1px solid white;
 }
 
 #workspaces button.urgent {
