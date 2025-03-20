@@ -3,11 +3,11 @@ padding=10
 default-timeout=2000
 ignore-timeout=1
 
-# Colors
-background-color=#1d202f
-text-color=#a9b1d6
-border-color=#7dcfff
-progress-color=over #313244
+background-color=#000000
+text-color=#ffffff
+border-color=#ebbcba
+progress-color=over #31748f
 
 [urgency=high]
-border-color=#f7768e
+border-color=#eb6f92
+
