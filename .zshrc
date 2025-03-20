@@ -54,6 +54,8 @@ alias m=make
 alias d=docker
 alias y=yazi
 alias lg=lazygit
+alias c=clear
+alias tmux='uwsm app -- tmux'
 
 function sesh-sessions() {
   {
