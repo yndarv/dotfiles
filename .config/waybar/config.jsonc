@@ -1,0 +1,24 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin": 2,
+  "modules-left": [
+    "hyprland/workspaces",
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "hyprland/language",
+  ],
+  // hyprland modules
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "*": 5,
+    }
+  }
+}
