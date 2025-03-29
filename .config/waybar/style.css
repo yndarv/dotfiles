@@ -25,59 +25,74 @@
 @define-color mantle #1e2030;
 @define-color crust #181926;
 
+@define-color rosewaterAlpha rgba(244, 219, 214, 0.7);
+@define-color flamingoAlpha rgba(240, 198, 198, 0.7);
+@define-color pinkAlpha rgba(245, 189, 230, 0.7);
+@define-color mauveAlpha rgba(198, 160, 246, 0.7);
+@define-color redAlpha rgba(237, 135, 150, 0.7);
+@define-color maroonAlpha rgba(238, 153, 160, 0.7);
+@define-color peachAlpha rgba(245, 169, 127, 0.7);
+@define-color yellowAlpha rgba(238, 212, 159, 0.7);
+@define-color greenAlpha rgba(166, 218, 149, 0.7);
+@define-color tealAlpha rgba(139, 213, 202, 0.7);
+@define-color skyAlpha rgba(145, 215, 227, 0.7);
+@define-color sapphireAlpha rgba(125, 196, 228, 0.7);
+@define-color blueAlpha rgba(138, 173, 244, 0.7);
+@define-color lavenderAlpha rgba(183, 189, 248, 0.7);
+@define-color textAlpha rgba(202, 211, 245, 0.7);
+@define-color subtext1Alpha rgba(184, 192, 224, 0.7);
+@define-color subtext0Alpha rgba(165, 173, 203, 0.7);
+@define-color overlay2Alpha rgba(147, 154, 183, 0.7);
+@define-color overlay1Alpha rgba(128, 135, 162, 0.7);
+@define-color overlay0Alpha rgba(110, 115, 141, 0.7);
+@define-color surface2Alpha rgba(91, 96, 120, 0.7);
+@define-color surface1Alpha rgba(73, 77, 100, 0.7);
+@define-color surface0Alpha rgba(54, 58, 79, 0.7);
+@define-color baseAlpha rgba(36, 39, 58, 0.7);
+@define-color mantleAlpha rgba(30, 32, 48, 0.7);
+@define-color crustAlpha rgba(24, 25, 38, 0.7);
+
 * {
   border: none;
-  border-radius: 0;
   font-family: monospace;
   font-size: 15px;
   min-height: 0px;
 }
 
 window#waybar {
-  background: @crust;
+  background-color: @crustAlpha;
   border-radius: 8px;
   color: @text;
-  border-bottom: 0px solid #ffffff;
   transition-property: background-color;
   transition-duration: .5s;
 }
 
-window#waybar.fullscreen {
-  color: @subtext1;
-}
-
 #workspaces button {
-  padding: 0 0.25em;
+  padding: 0 0.1em;
   margin: 0 2px 0 0;
-  background-color: @base;
+  background: transparent;
   color: @text;
   margin: 0.25em;
   border-radius: 15px;
   border: 0px;
   transition: all 0.1s linear;
-  opacity: 0.4;
+  min-width: 20px;
+  opacity: 0.3;
 }
 
 #workspaces button.active {
-  background-color: @green;
-  color: @base;
+  background-color: @greenAlpha;
+  color: @crust;
   border-radius: 15px;
-  min-width: 40px;
+  min-width: 30px;
   transition: all 0.1s linear;
   opacity: 1.0;
-}
-
-#workspaces button.empty {
-  color: @overlay1;
-}
-
-#workspaces button.empty.active {
-  color: @base;
 }
 
 #workspaces button.urgent {
   background-color: @red;
   color: @text;
+  opacity: 1;
 }
 
 #tray {
@@ -90,11 +105,11 @@ window#waybar.fullscreen {
 
 #tray>.needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: @red;
+  background-color: @redAlpha;
 }
 
 #tray menu {
-  background-color: @crust;
+  background-color: @crustAlpha;
   border-radius: 8px;
   color: @text;
 }
@@ -114,14 +129,14 @@ window#waybar.fullscreen {
 
 @keyframes blink {
   to {
-    background-color: @base;
+    background-color: @crustAlpha;
     color: @text;
   }
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: @red;
+  background-color: @redAlpha;
+  color: @base;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -166,13 +181,12 @@ window#waybar.fullscreen {
 }
 
 label:focus {
-  background-color: @crust;
+  background-color: @crustAlpha;
 }
 
 tooltip {
   border-radius: 8px;
-  background-color: @crust;
-  opacity: 0.9;
+  background-color: @crustAlpha;
   padding: 20px;
   margin: 0px;
 }
