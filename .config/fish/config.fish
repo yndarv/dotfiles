@@ -3,5 +3,6 @@ if status is-interactive
 end
 
 starship init fish | source
+enable_transience
 zoxide init --cmd=cd fish | source
 fzf --fish | source
