@@ -29,35 +29,150 @@
   border: none;
   border-radius: 0;
   font-family: monospace;
-  font-size: 14px;
-  min-height: 0;
+  font-size: 15px;
+  min-height: 0px;
 }
 
 window#waybar {
   background: @crust;
   border-radius: 8px;
   color: @text;
+  border-bottom: 0px solid #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.fullscreen {
+  color: @subtext1;
 }
 
 #workspaces button {
-  padding: 0 0.2em;
-  background-color: @surface0;
+  padding: 0 0.25em;
+  margin: 0 2px 0 0;
+  background-color: @base;
   color: @text;
   margin: 0.25em;
-  border-radius: 10px;
-}
-
-#workspaces button.empty {
-  color: @overlay0;
+  border-radius: 15px;
+  border: 0px;
+  transition: all 0.1s linear;
+  opacity: 0.4;
 }
 
 #workspaces button.active {
   background-color: @green;
   color: @base;
+  border-radius: 15px;
+  min-width: 40px;
+  transition: all 0.1s linear;
+  opacity: 1.0;
+}
+
+#workspaces button.empty {
+  color: @overlay1;
+}
+
+#workspaces button.empty.active {
+  color: @base;
 }
 
 #workspaces button.urgent {
   background-color: @red;
-  border-radius: 1em;
   color: @text;
+}
+
+#tray {
+  margin: 0px 10px 0px 0px;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+#tray menu {
+  background-color: @crust;
+  border-radius: 8px;
+  color: @text;
+}
+
+
+#battery {
+  background: transparent;
+  color: @text;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @green;
+}
+
+@keyframes blink {
+  to {
+    background-color: @base;
+    color: @text;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+#clock {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#language {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#pulseaudio {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+
+#pulseaudio.muted {
+  color: @peach;
+}
+
+#pulseaudio.source-muted {
+  color: @maroon;
+}
+
+#pulseaudio.muted.source-muted {
+  color: @red;
+  font-weight: bold;
+}
+
+label:focus {
+  background-color: @crust;
+}
+
+tooltip {
+  border-radius: 8px;
+  background-color: @crust;
+  opacity: 0.9;
+  padding: 20px;
+  margin: 0px;
 }

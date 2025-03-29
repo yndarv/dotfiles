@@ -1,12 +1,14 @@
 {
   "layer": "top",
   "position": "top",
-  "margin": 2,
+  "margin": "2 2 0 2",
+  "reload_style_on_change": true,
+  "spacing": 2,
   "modules-left": [
     "hyprland/workspaces",
   ],
   "modules-center": [
-    "clock"
+    "clock",
   ],
   "modules-right": [
     "tray",
@@ -15,10 +17,104 @@
     "pulseaudio",
     "hyprland/language",
   ],
-  // hyprland modules
   "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace r-1",
+    "on-scroll-down": "hyprctl dispatch workspace r+1",
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
     "persistent-workspaces": {
-      "*": 5,
+      "*": 5
     }
-  }
+  },
+  "hyprland/window": {
+    "max-length": 60,
+    "rewrite": {},
+    "separate-outputs": true
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "US",
+    "format-ru": "RU",
+  },
+  "tray": {
+    "spacing": 10,
+    "icon-size": 21,
+  },
+  "clock": {
+    "format": "{:%d.%m.%Y 󰃭 %H:%M} 󰥔 ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#f5a97f'><b>{}</b></span>",
+        "days": "<span color='#cad3f5'><b>{}</b></span>",
+        "weeks": "<span color='#a6da95'><b>W{}</b></span>",
+        "weekdays": "<span color='#eed49f'><b>{}</b></span>",
+        "today": "<span color='#ed8796'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "backlight": {
+    "format": "{percent}% {icon} ",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "full-at": 96,
+    "interval": 15,
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰂄",
+    "format-alt": "{icon}{time}",
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁽",
+      "󰁿",
+      "󰂁",
+      "󰁹",
+    ],
+    "tooltip-format-discharging": "Discharge rate {power}W",
+  },
+  "pulseaudio": {
+    "format": "{volume}% 󰋋 {format_source}",
+    "format-bluetooth": "{volume}% 󰋋  {format_source}",
+    "format-bluetooth-muted": "󰟎  {format_source}",
+    "format-muted": "{format_source}",
+    "format-source": "{volume}% 󰍬",
+    "format-source-muted": "󰍭",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  },
 }
