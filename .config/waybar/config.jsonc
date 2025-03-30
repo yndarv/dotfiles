@@ -2,16 +2,13 @@
   "layer": "top",
   "position": "top",
   "margin": "2 2 0 2",
-  "reload_style_on_change": true,
+  "reload_style_on_change": false,
   "spacing": 2,
-  "modules-left": [
-    "hyprland/workspaces",
-  ],
-  "modules-center": [
-    "clock",
-  ],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
   "modules-right": [
     "tray",
+    "clock",
     "backlight",
     "battery",
     "pulseaudio",
@@ -27,16 +24,16 @@
     "format-icons": {
       "urgent": "",
       "active": "",
-      "default": ""
+      "default": "",
     },
     "persistent-workspaces": {
-      "*": 5
-    }
+      "*": 5,
+    },
   },
   "hyprland/window": {
-    "max-length": 60,
-    "rewrite": {},
-    "separate-outputs": true
+    "max-length": 30,
+    "format": "{}",
+    "separate-outputs": true,
   },
   "hyprland/language": {
     "format": "{}",
@@ -60,51 +57,34 @@
         "days": "<span color='#cad3f5'><b>{}</b></span>",
         "weeks": "<span color='#a6da95'><b>W{}</b></span>",
         "weekdays": "<span color='#eed49f'><b>{}</b></span>",
-        "today": "<span color='#ed8796'><b><u>{}</u></b></span>"
-      }
+        "today": "<span color='#ed8796'><b><u>{}</u></b></span>",
+      },
     },
     "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "tz_up",
       "on-scroll-down": "tz_down",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
+      "on-scroll-down": "shift_down",
+    },
   },
   "backlight": {
     "format": "{percent}% {icon} ",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
   },
   "battery": {
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "full-at": 96,
     "interval": 15,
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰂄",
-    "format-plugged": "{capacity}% 󰂄",
+    "format-charging": " {capacity}% 󰂄",
+    "format-plugged": " {capacity}% 󰂄",
     "format-alt": "{icon}{time}",
-    "format-icons": [
-      "󰂎",
-      "󰁻",
-      "󰁽",
-      "󰁿",
-      "󰂁",
-      "󰁹",
-    ],
+    "format-icons": ["󰂎", "󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
     "tooltip-format-discharging": "Discharge rate {power}W",
   },
   "pulseaudio": {
@@ -114,7 +94,7 @@
     "format-muted": "{format_source}",
     "format-source": "{volume}% 󰍬",
     "format-source-muted": "󰍭",
-    "on-click": "pavucontrol",
-    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    "on-click": "pwvucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
   },
 }
