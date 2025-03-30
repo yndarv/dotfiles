@@ -55,7 +55,7 @@
 * {
   border: none;
   font-family: monospace;
-  font-size: 15px;
+  font-size: 14px;
   min-height: 0px;
 }
 
@@ -64,29 +64,30 @@ window#waybar {
   border-radius: 8px;
   color: @text;
   transition-property: background-color;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
+}
+
+window#waybar.fullscreen {
+  color: @peach;
 }
 
 #workspaces button {
   padding: 0 0.1em;
   margin: 0 2px 0 0;
-  background: transparent;
-  color: @text;
+  color: @subtext0;
   margin: 0.25em;
   border-radius: 15px;
   border: 0px;
   transition: all 0.1s linear;
   min-width: 20px;
-  opacity: 0.3;
 }
 
 #workspaces button.active {
-  background-color: @greenAlpha;
-  color: @crust;
+  background-color: @green;
+  color: @base;
   border-radius: 15px;
   min-width: 30px;
   transition: all 0.1s linear;
-  opacity: 1.0;
 }
 
 #workspaces button.urgent {
@@ -113,7 +114,6 @@ window#waybar {
   border-radius: 8px;
   color: @text;
 }
-
 
 #battery {
   background: transparent;
@@ -144,7 +144,6 @@ window#waybar {
   animation-direction: alternate;
 }
 
-
 #clock {
   color: @text;
   background: transparent;
@@ -166,6 +165,12 @@ window#waybar {
   padding: 0 4px;
 }
 
+#backlight {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
 
 #pulseaudio.muted {
   color: @peach;
