@@ -1,4 +1,58 @@
+# Gopls
+# -----------------------------------------------------------------------------------------------------------------------------------------------
 [[language]]
 name = "go"
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go", "gotmpl", "tmpl"]
+roots = ["go.work", "go.mod"]
 auto-format = true
-formatter = { command = "goimports" }
+comment-token = "//"
+formatter = {  command = "bash",  args = [ "-c",  "set -euo pipefail; gofumpt | golines -m 80" ]  }
+text-width = 80
+diagnostic-severity = "hint"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "gopls", "golangci-lint-lsp" ]
+indent = { tab-width = 4, unit = "\t" }
+
+[language-server.gopls]
+command = "gopls"
+args = ["--logfile=/tmp/gopls.log", "serve"]
+
+[language-server.gopls.config]
+templateExtensions = ["tmpl", "gotmpl", "gohtml"]
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+# Fish
+# -----------------------------------------------------------------------------------------------------------------------------------------------
+
+[[language]]
+name = "fish"
+language-servers = [ "fish-lsp" ]
+
+[language-server.fish-lsp]
+command = "fish-lsp"
+args = ["start"]
+environment = { "fish_lsp_show_client_popups" = "false" }
+
+# HTML
+# -----------------------------------------------------------------------------------------------------------------------------------------------
+ 
+[[language]]
+name = "html"
+scope = "text.html.basic"
+injection-regex = "html"
+file-types = ["html", "htm", "shtml", "xhtml", "xht", "jsp", "asp", "aspx", "jshtm", "volt", "rhtml", "cshtml", "tmpl", "gotmpl", "gohtml"]
+block-comment-tokens = { start = "<!--", end = "-->" }
+language-servers = [ "vscode-html-language-server", "superhtml", "emmet-lsp" ]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+ 
+# Emmet
+# -----------------------------------------------------------------------------------------------------------------------------------------------
+
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
