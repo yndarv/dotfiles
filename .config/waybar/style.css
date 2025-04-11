@@ -1,0 +1,196 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+@define-color rosewaterAlpha rgba(245, 224, 220, 0.8);
+@define-color flamingoAlpha rgba(242, 205, 205, 0.8);
+@define-color pinkAlpha rgba(245, 194, 231, 0.8);
+@define-color mauveAlpha rgba(203, 166, 247, 0.8);
+@define-color redAlpha rgba(243, 139, 168, 0.8);
+@define-color maroonAlpha rgba(235, 160, 172, 0.8);
+@define-color peachAlpha rgba(250, 179, 135, 0.8);
+@define-color yellowAlpha rgba(249, 226, 175, 0.8);
+@define-color greenAlpha rgba(166, 227, 161, 0.8);
+@define-color tealAlpha rgba(148, 226, 213, 0.8);
+@define-color skyAlpha rgba(137, 220, 235, 0.8);
+@define-color sapphireAlpha rgba(116, 199, 236, 0.8);
+@define-color blueAlpha rgba(137, 180, 250, 0.8);
+@define-color lavenderAlpha rgba(180, 190, 254, 0.8);
+@define-color textAlpha rgba(205, 214, 244, 0.8);
+@define-color subtext1Alpha rgba(186, 194, 222, 0.8);
+@define-color subtext0Alpha rgba(166, 173, 200, 0.8);
+@define-color overlay2Alpha rgba(147, 153, 178, 0.8);
+@define-color overlay1Alpha rgba(127, 132, 156, 0.8);
+@define-color overlay0Alpha rgba(108, 112, 134, 0.8);
+@define-color surface2Alpha rgba(88, 91, 112, 0.8);
+@define-color surface1Alpha rgba(69, 71, 90, 0.8);
+@define-color surface0Alpha rgba(49, 50, 68, 0.8);
+@define-color baseAlpha rgba(30, 30, 46, 0.8);
+@define-color mantleAlpha rgba(24, 24, 37, 0.8);
+@define-color crustAlpha rgba(17, 17, 27, 0.6);
+
+* {
+  border: none;
+  font-family: monospace;
+  font-size: 14px;
+  min-height: 0px;
+}
+
+window#waybar {
+  background-color: @crustAlpha;
+  border-radius: 8px;
+  color: @text;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.fullscreen {
+  color: @peach;
+}
+
+#workspaces button {
+  padding: 0;
+  margin: 0 2px 0 0;
+  color: @text;
+  margin: 0.25em;
+  border-radius: 8px;
+  border: 0px;
+  transition: all 0.1s linear;
+  min-width: 30px;
+}
+
+#workspaces button.active {
+  background-color: @subtext1;
+  color: @base;
+  border-radius: 15px;
+  transition: all 0.1s linear;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @base;
+  opacity: 1;
+}
+
+#tray {
+  margin: 0px 10px 0px 0px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @redAlpha;
+}
+
+#tray menu {
+  background-color: @crustAlpha;
+  border-radius: 8px;
+  color: @text;
+}
+
+#battery {
+  background: transparent;
+  color: @text;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @green;
+}
+
+@keyframes blink {
+  to {
+    background-color: @crustAlpha;
+    color: @text;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: @redAlpha;
+  color: @base;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#clock {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#language {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#pulseaudio {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#backlight {
+  color: @text;
+  background: transparent;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+#pulseaudio.muted {
+  color: @peach;
+}
+
+#pulseaudio.source-muted {
+  color: @maroon;
+}
+
+#pulseaudio.muted.source-muted {
+  color: @red;
+  font-weight: bold;
+}
+
+label:focus {
+  background-color: @crustAlpha;
+}
+
+tooltip {
+  border-radius: 8px;
+  background-color: @crustAlpha;
+  padding: 20px;
+  margin: 0px;
+}
