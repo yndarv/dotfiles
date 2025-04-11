@@ -1,0 +1,16 @@
+[Unit]
+Description=An application to enable a blue-light filter.
+PartOf=graphical-session.target
+Requires=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wlsunset -l 52.094109 -L 23.731911
+Slice=session.slice
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
+
