@@ -83,7 +83,7 @@
 "ui.bufferline.background" = { bg = "" }
 
 "ui.text" = "text"
-"ui.text.focus" = { fg = "text", bg = "surface0", modifiers = ["bold"] }
+"ui.text.focus" = { fg = "teal", modifiers = ["bold"] }
 "ui.text.inactive" = { fg = "overlay1" }
 "ui.text.directory" = { fg = "blue" }
 
@@ -112,7 +112,7 @@
 "ui.highlight" = { bg = "surface1", modifiers = ["bold"] }
 
 "ui.menu" = { fg = "overlay2", bg = "" }
-"ui.menu.selected" = { fg = "maroon", modifiers = ["bold"] }
+"ui.menu.selected" = { fg = "teal", modifiers = ["bold"] }
 
 "diagnostic.error" = { underline = { color = "red", style = "curl" } }
 "diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
