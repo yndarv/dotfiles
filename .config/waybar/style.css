@@ -55,8 +55,8 @@
 * {
   border: none;
   font-family: monospace;
-  font-size: 14px;
-  min-height: 0px;
+  font-size: 15px;
+  min-height: 0;
 }
 
 window#waybar {
@@ -71,39 +71,43 @@ window#waybar.fullscreen {
   color: @peach;
 }
 
-#workspaces button {
-  padding: 0;
-  margin: 0 2px 0 0;
-  color: @text;
-  margin: 0.25em;
-  border-radius: 8px;
+#workspaces {
   border: 0px;
+  font-weight: bold;
+  font-style: normal;
+  color: @text;
+}
+
+#workspaces button {
+  padding: 0 2px;
+  margin: 0 2px;
+  border-radius: 15px;
+  border: 0px;
+  color: @text;
   transition: all 0.1s linear;
-  min-width: 30px;
 }
 
 #workspaces button.active {
-  background-color: @subtext1;
   color: @base;
+  background: @teal;
+  min-width: 40px;
   border-radius: 15px;
-  transition: all 0.1s linear;
 }
 
-#workspaces button.urgent {
-  background-color: @red;
-  color: @base;
-  opacity: 1;
+#workspaces button:hover {
+  background: @overlay0Alpha;
+  border-radius: 15px;
 }
 
 #tray {
   margin: 0px 10px 0px 0px;
 }
 
-#tray > .passive {
+#tray>.passive {
   -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @redAlpha;
 }

@@ -1,9 +1,13 @@
 {
   "layer": "top",
   "position": "top",
-  "margin": "2 8 0 8",
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  "margin": "4 8 0 8",
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
   "modules-right": [
     "tray",
     "clock",
@@ -13,20 +17,10 @@
     "hyprland/language",
   ],
   "hyprland/workspaces": {
-    "on-scroll-up": "hyprctl dispatch workspace r-1",
-    "on-scroll-down": "hyprctl dispatch workspace r+1",
     "on-click": "activate",
     "active-only": false,
     "all-outputs": true,
     "format": "{}",
-    "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": "",
-    },
-    "persistent-workspaces": {
-      "*": 5,
-    },
   },
   "hyprland/window": {
     "max-length": 30,
@@ -68,7 +62,17 @@
   },
   "backlight": {
     "format": "{percent}% {icon} ",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
   },
   // This is a comment!
   "battery": {
@@ -83,7 +87,14 @@
     "format-charging": " {capacity}% 󰂄",
     "format-plugged": " {capacity}% 󰂄",
     "format-alt": "{icon}{time}",
-    "format-icons": ["󰂎", "󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁽",
+      "󰁿",
+      "󰂁",
+      "󰁹"
+    ],
     "tooltip-format-discharging": "Discharge rate {power}W",
   },
   "pulseaudio": {
