@@ -2,14 +2,9 @@ theme="mocha"
 
 [editor]
 continue-comments = false
-preview-completion-insert = false
 text-width = 80
 popup-border = "all"
 jump-label-alphabet = "sadfjklewcmpgh"
-
-[editor.lsp]
-display-progress-messages = true
-display-inlay-hints = true
 
 [editor.file-picker]
 hidden=false
