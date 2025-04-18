@@ -1,22 +1,13 @@
-# ------------------
-# GO
-
 [[language]]
 name = "go"
-scope = "source.go"
-injection-regex = "go"
-file-types = ["go"]
-roots = ["go.work", "go.mod"]
-auto-format = true
-comment-token = "//"
-block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [ "gopls", "golangci-lint-lsp" ]
-# TODO: gopls needs utf-8 offsets?
-indent = { tab-width = 4, unit = "\t" }
 formatter = {command = "sh", args = ["-c", "set -euo pipefail; gofumpt | golines -m 80"]}
+language-servers = [ "gopls", "golangci-lint-lsp" ]
 
-[language-server.gopls]
-command = "gopls"
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false", "--issues-exit-code=1"]
 
 [language-server.gopls.config.hints]
 assignVariableTypes = true
@@ -26,3 +17,75 @@ functionTypeParameters = true
 parameterNames = true
 rangeVariableTypes = true
 
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+
+[[language]]
+name = "markdown"
+auto-format = true
+formatter = {  command = "prettier", args = [ "--parser", "markdown", "--prose-wrap", "always",  "--print-width", "80" ] }
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "tailwindcss-ls" ]
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "tailwindcss-ls" ]
+
+[[language]]
+name = "jsx"
+language-servers = [ "typescript-language-server", "tailwindcss-ls" ]
+
+[[language]]
+name = "tsx"
+language-servers = [ "typescript-language-server", "tailwindcss-ls" ]
+
+[[language]]
+name = "svelte"
+language-servers = [ "svelteserver", "tailwindcss-ls" ]
+
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
+[[language]]
+name = "javascript"
+language-servers = [
+  "typescript-language-server", # optional
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "typescript"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "vue"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "vue"] }
+language-servers = ["typescript-language-server"]
+
+[[language-server.typescript-language-server.config.plugins]]
+name = "@vue/typescript-plugin"
+location = "$HOME/.local/bin/vue-language-server"
+languages = ["vue"]
+
+[[language]]
+name = "yaml"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
+
+[language-server.yaml-language-server.config.yaml]
+format = { enable = true }
+validation = true
+
+[language-server.yaml-language-server.config.yaml.schemas]
+"https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.{yml,yaml}"
+"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json" = "roles/{tasks,handlers}/*.{yml,yaml}"
