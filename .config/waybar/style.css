@@ -23,23 +23,8 @@
 @define-color surface0 #313244;
 @define-color base #1e1e2e;
 @define-color mantle #181825;
-@define-color crust #11111b;
+@define-color crust #00000e;
 
-@define-color rosewaterAlpha rgba(245, 224, 220, 0.8);
-@define-color flamingoAlpha rgba(242, 205, 205, 0.8);
-@define-color pinkAlpha rgba(245, 194, 231, 0.8);
-@define-color mauveAlpha rgba(203, 166, 247, 0.8);
-@define-color redAlpha rgba(243, 139, 168, 0.8);
-@define-color maroonAlpha rgba(235, 160, 172, 0.8);
-@define-color peachAlpha rgba(250, 179, 135, 0.8);
-@define-color yellowAlpha rgba(249, 226, 175, 0.8);
-@define-color greenAlpha rgba(166, 227, 161, 0.8);
-@define-color tealAlpha rgba(148, 226, 213, 0.8);
-@define-color skyAlpha rgba(137, 220, 235, 0.8);
-@define-color sapphireAlpha rgba(116, 199, 236, 0.8);
-@define-color blueAlpha rgba(137, 180, 250, 0.8);
-@define-color lavenderAlpha rgba(180, 190, 254, 0.8);
-@define-color textAlpha rgba(205, 214, 244, 0.8);
 @define-color subtext1Alpha rgba(186, 194, 222, 0.8);
 @define-color subtext0Alpha rgba(166, 173, 200, 0.8);
 @define-color overlay2Alpha rgba(147, 153, 178, 0.8);
@@ -50,7 +35,7 @@
 @define-color surface0Alpha rgba(49, 50, 68, 0.8);
 @define-color baseAlpha rgba(30, 30, 46, 0.8);
 @define-color mantleAlpha rgba(24, 24, 37, 0.8);
-@define-color crustAlpha rgba(17, 17, 27, 0.6);
+@define-color crustAlpha rgba(0, 0, 14, 0.8);
 
 * {
   border: none;
@@ -60,8 +45,8 @@
 }
 
 window#waybar {
-  background-color: @crustAlpha;
-  border-radius: 8px;
+  background-color: @baseAlpha;
+  border-radius: 4px;
   color: @text;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -76,22 +61,22 @@ window#waybar.fullscreen {
   font-weight: bold;
   font-style: normal;
   color: @text;
+  border: 2px solid transparent;
 }
 
 #workspaces button {
+  min-height: 0px;
   padding: 0 2px;
   margin: 0 2px;
-  border-radius: 15px;
-  border: 0px;
+  border-radius: 4px;
   color: @text;
   transition: all 0.1s linear;
+  min-width: 20px;
 }
 
 #workspaces button.active {
   color: @base;
   background: @teal;
-  min-width: 40px;
-  border-radius: 15px;
 }
 
 #workspaces button:hover {
@@ -113,7 +98,7 @@ window#waybar.fullscreen {
 }
 
 #tray menu {
-  background-color: @crustAlpha;
+  background-color: @baseAlpha;
   border-radius: 8px;
   color: @text;
 }
@@ -128,13 +113,6 @@ window#waybar.fullscreen {
 #battery.charging,
 #battery.plugged {
   color: @green;
-}
-
-@keyframes blink {
-  to {
-    background-color: @crustAlpha;
-    color: @text;
-  }
 }
 
 #battery.critical:not(.charging) {
@@ -189,12 +167,12 @@ window#waybar.fullscreen {
 }
 
 label:focus {
-  background-color: @crustAlpha;
+  background-color: @baseAlpha;
 }
 
 tooltip {
   border-radius: 8px;
-  background-color: @crustAlpha;
+  background-color: @baseAlpha;
   padding: 20px;
   margin: 0px;
 }
